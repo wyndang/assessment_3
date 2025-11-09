@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Artists - Elektrik Eel Festival</title>
+
+    <link rel="icon" type="image/png" href="hero_image/weblogo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Libertinus+Keyboard&family=Sixtyfour&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style-artists.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="hero_image/weblogo.png" alt="Elektrik Eel Logo" class="header-logo">
+                    Elektrik Eel
+                </a>
+            </div>
+
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="index.html">Home</a>
+                    <a href="artists.html" class="active">Artists</a> <a href="index.html#shows">Shows</a>
+                    <a href="index.html#genres">Subgenres</a>
+                    <a href="index.html#gallery">Gallery</a>
+                </nav>
+                <a href="index.html#signup" class="btn btn-nav">Sign Up</a>
+            </div>
+
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero-artists" style="background-image: url('hero_image/hero_artist.jpg');">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 class="animate-init animate-fade-in-down">Our Artists</h1>
+
+                    <div class="artist-search-container animate-init animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <form action="#" class="artist-search-form">
+                            <input type="text" id="artistSearchInput" placeholder="Search artists..."
+                                class="search-input">
+                            <button type="submit" class="btn btn-primary search-btn">Search</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="artist-list" class="content-section dark-bg">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">International and national artists locked in:</h2>
+
+                <div id="artistGrid" class="artist-grid">
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Jock Boyd (AU)"
+                        style="background-image: url('lineup/jock_boyd.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>Jock Boyd</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Peter McKinnon (EU)"
+                        style="animation-delay: 0.1s; background-image: url('lineup/peter_mckinnon.jpg');">
+                        <div class="artist-tag">EU</div>
+                        <div class="artist-card-content">
+                            <h4>Peter McKinnon</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Boris Brejcha (NE)"
+                        style="animation-delay: 0.2s; background-image: url('lineup/boris_brejcha.jpg');">
+                        <div class="artist-tag">NE</div>
+                        <div class="artist-card-content">
+                            <h4>Boris Brejcha</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="DJ Muller (BR)"
+                        style="animation-delay: 0.3s; background-image: url('lineup/dj_muller.jpg');">
+                        <div class="artist-tag">BR</div>
+                        <div class="artist-card-content">
+                            <h4>DJ Muller</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="DJ Rekab (UK)"
+                        style="animation-delay: 0.4s; background-image: url('lineup/dj_rekab.jpg');">
+                        <div class="artist-tag">UK</div>
+                        <div class="artist-card-content">
+                            <h4>DJ Rekab</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Emperors (AU)"
+                        style="animation-delay: 0.5s; background-image: url('lineup/emperors.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>Emperors</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="The Chevelles (AU)"
+                        style="background-image: url('lineup/the_chevelles.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>The Chevelles</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Coerce (AU)"
+                        style="animation-delay: 0.1s; background-image: url('lineup/coerce.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>Coerce</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Femme Fatales (AU)"
+                        style="animation-delay: 0.2s; background-image: url('lineup/femme_fatales.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>Femme Fatales</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Hawks of Alba (AU)"
+                        style="animation-delay: 0.3s; background-image: url('lineup/hawk_of_alba.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>Hawks of Alba</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="The Thieves (AU)"
+                        style="animation-delay: 0.4s; background-image: url('lineup/the_thieves.jpg');">
+                        <div class="artist-tag">AU</div>
+                        <div class="artist-card-content">
+                            <h4>The Thieves</h4>
+                        </div>
+                    </div>
+                    <div class="artist-card animate-init animate-fade-in-up" data-artist-name="Aforemention (FR)"
+                        style="animation-delay: 0.5s; background-image: url('lineup/aforemention.jpg');">
+                        <div class="artist-tag">FR</div>
+                        <div class="artist-card-content">
+                            <h4>Aforemention</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="noResultsMessage">
+                    No artists found matching your search.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-title">Opening Hours</h3>
+                <ul class="opening-hours">
+                    <li>Mon - Fri: 10am - 8pm</li>
+                    <li>Sat - Sun: 12pm - 6pm</li>
+                    <li>Festival Days: 24/7</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-contact-dropdown">
+                    <button id="contactToggleBtn" class="footer-title footer-toggle">
+                        Have a Question? Get in Touch <span>&#9662;</span>
+                    </button>
+                    <form id="contactForm" action="#" class="contact-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="3" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><img src="icons/facebook.png" alt="Facebook"></a>
+                    <a href="#" aria-label="Twitter (X)"><img src="icons/twitter.png" alt="X"></a>
+                    <a href="#" aria-label="Instagram"><img src="icons/instagram.png" alt="Instagram"></a>
+                    <a href="#" aria-label="Apple Music"><img src="icons/apple.png" alt="Apple"></a>
+                    <a href="#" aria-label="Spotify"><img src="icons/spotify.png" alt="Spotify"></a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Elektrik Eel Festival. All Rights Reserved.</p>
+    </footer>
+
+    <a id="scrollTopBtn" class="btn btn-primary">&uarr;</a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

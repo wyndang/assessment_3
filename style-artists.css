@@ -1,0 +1,830 @@
+/*
+=================================================================
+  STYLE-ARTISTS.CSS (Artists Page Stylesheet)
+  For Elektrik Eel Festival Website (DIG103 Assessment 3)
+
+  Sections:
+  1. :root (CSS Custom Properties / Variables)
+  2. Global Styles (Reset, Body, Typography)
+  3. Header & Navigation (Logo, Nav, Hamburger)
+  4. Buttons & Forms (Reusable Components)
+  5. Hero Section (Artists Page Hero)
+  6. Content Sections (Shared Styles)
+  7. Artist List Section (Artist Grid, Search Styles)
+  8. Footer (Grid, Columns, Contact Form, Social)
+  9. Animations (Animate on Scroll)
+  10. Utilities (Scroll to Top Button)
+  11. Media Queries (Responsive Design)
+=================================================================
+*/
+
+/* 1. :root (CSS Custom Properties / Variables) */
+/* Defines the color palette and font families for easy reuse and maintenance. */
+:root {
+    --bg-dark: #000000;
+    --bg-light: #0a0a0a;
+    --text-primary: #FFFFFF;
+    --text-secondary: #AAAAAA;
+    --accent-color: #E50914;
+    --accent-hover: #FF1A27;
+    --neon-red: #FF003C;
+    --neon-pink: #FF4500;
+    --neon-pink-original: #F000FF;
+    --neon-orange: #FF8C00;
+    --bg-glow-red: #6a0000;
+    --bg-section-transparent: rgba(0, 0, 0, 0.7);
+    --bg-section-dark-transparent: rgba(10, 10, 10, 0.7);
+    --font-primary: 'Caudex', serif;
+    --font-display: 'Sixtyfour', sans-serif;
+    --gradient-neon: linear-gradient(to right, #FF003C, #F000FF, #FF003C);
+}
+
+/* 2. Global Styles (Reset, Body, Typography) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Global pseudo-element for the fixed background.
+*/
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image:
+        radial-gradient(ellipse at top center, var(--bg-glow-red) 0%, transparent 70%),
+        url('hero_image/background.jpg');
+    background-size: 100% 100%, cover;
+    background-position: top center, center center;
+    background-repeat: no-repeat, no-repeat;
+    /* FIX: Removed 'background-attachment: fixed, fixed;' 
+      This property causes rendering issues on mobile (iOS Safari).
+    */
+    background-blend-mode: overlay;
+    opacity: 0.8;
+}
+
+/* 3. Header & Navigation (Logo, Nav, Hamburger) */
+.main-header {
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo styling */
+.logo a {
+    /* FIX: Reduced font-size slightly from 1.2rem to 1.15rem 
+      and added white-space: nowrap to prevent text wrapping on small screens.
+    */
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    font-family: var(--font-display);
+    white-space: nowrap;
+    /* Prevents "Elektrik Eel" from breaking into two lines */
+}
+
+.header-logo {
+    height: 60px;
+    width: 70px;
+    margin-right: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+/* Nav link styling with gradient text */
+.main-nav a {
+    font-weight: 700;
+    padding: 10px 15px;
+    transition: color 0.3s ease, text-shadow 0.3s ease, background-position 0.4s ease;
+    text-decoration: none;
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, var(--neon-orange), var(--neon-red), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 0 var(--text-primary);
+    position: relative;
+}
+
+/* Nav link hover/active state with neon glow */
+.main-nav a:hover,
+.main-nav a.active {
+    background-image: linear-gradient(to right, #FF003C, #F000FF);
+    background-size: 100% auto;
+    background-position: 0 0;
+    text-shadow: 0 0 8px rgba(255, 0, 60, 0.7), 0 0 15px rgba(240, 0, 255, 0.7);
+}
+
+/* Hamburger menu icon (hidden on desktop) */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--text-primary);
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.hamburger-menu span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-menu span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger-menu span:nth-child(3) {
+    top: 18px;
+}
+
+/* Hamburger 'active' state (transforms to 'X') */
+.hamburger-menu.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+    left: -30px;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+}
+
+/* 4. Buttons & Forms (Reusable Components) */
+/* Base button style */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+/* Primary gradient button */
+.btn-primary {
+    background-image: var(--gradient-neon);
+    color: var(--text-primary);
+    border: none;
+    background-size: 200% auto;
+}
+
+.btn-primary:hover {
+    background-position: right center;
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.7), 0 0 15px rgba(240, 0, 255, 0.7);
+    transform: translateY(-3px);
+}
+
+/* Navigation button variant */
+.btn-nav {
+    background-image: var(--gradient-neon);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 30px;
+    background-size: 200% auto;
+}
+
+.btn-nav:hover {
+    background-position: right center;
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.7), 0 0 15px rgba(240, 0, 255, 0.7);
+}
+
+/* Base form input styles */
+input[type="text"],
+input[type="email"],
+textarea {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    padding: 14px 25px;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.7);
+    border: 2px solid rgba(51, 51, 51, 0.7);
+    color: var(--text-primary);
+    border-radius: 50px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--text-primary);
+}
+
+textarea {
+    border-radius: 50px;
+    resize: vertical;
+}
+
+/* Footer contact form specifics */
+.contact-form input[type="email"],
+.contact-form textarea {
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* 5. Hero Section (Artists Page Hero) */
+#hero-artists {
+    height: 100vh;
+    /* Full viewport height */
+    width: 100%;
+    position: relative;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    /* FIX: Removed 'background-attachment: fixed;' 
+      This property causes rendering issues on mobile (iOS Safari).
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark overlay for text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    /* Above the overlay */
+    padding: 20px;
+}
+
+#hero-artists .hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+}
+
+/* Artist search form styling */
+/* This fulfills the "user input area" requirement */
+.artist-search-form {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Search input field styling */
+.search-input {
+    flex-grow: 1;
+    /* Takes up available space */
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-input:focus {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.search-btn {
+    flex-shrink: 0;
+    /* Prevents button from shrinking */
+}
+
+/* 6. Content Sections (Shared Styles) */
+.content-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--bg-section-transparent);
+    backdrop-filter: blur(5px);
+}
+
+/* Padding to avoid fixed header */
+main>section:first-child {
+    padding-top: 100px;
+}
+
+#hero-artists {
+    padding-top: 0;
+}
+
+/* Alternate dark background */
+.dark-bg {
+    background-color: var(--bg-section-dark-transparent);
+}
+
+/* Shared section heading */
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 60px;
+}
+
+/* Inner container for section content */
+.section-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* 7. Artist List Section */
+/* Grid container for all artist cards */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns on desktop */
+    gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Individual artist card */
+.artist-card {
+    aspect-ratio: 16 / 10;
+    /* Maintains aspect ratio */
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    z-index: 1;
+}
+
+.artist-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+/* Tag for artist origin (e.g., 'AU', 'EU') */
+.artist-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* Content overlay at the bottom of the card */
+.artist-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
+    z-index: 1;
+}
+
+.artist-card-content h4 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* Styles for search functionality (controlled by script.js) 
+  These classes are added/removed by jQuery during filtering.
+*/
+.artist-card.highlight {
+    transform: scale(1.05);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.artist-card.no-match {
+    opacity: 0.3;
+    transform: scale(0.95);
+    z-index: 9;
+}
+
+/* Message shown when no search results are found */
+#noResultsMessage {
+    display: none;
+    /* Shown by jQuery */
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    color: var(--text-secondary);
+}
+
+/* 8. Footer */
+footer {
+    padding: 60px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+    background-color: var(--bg-section-transparent);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+}
+
+.footer-column .footer-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Opening hours list */
+.opening-hours {
+    list-style: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-left: 0;
+}
+
+.opening-hours li {
+    margin-bottom: 8px;
+}
+
+/* Footer contact dropdown toggle */
+.footer-contact-dropdown .footer-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+}
+
+.footer-contact-dropdown .footer-toggle span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.footer-contact-dropdown .footer-toggle:hover {
+    transform: translateY(-2px);
+}
+
+.footer-contact-dropdown .footer-toggle.active span,
+.footer-contact-dropdown .footer-toggle.hover-active span {
+    transform: rotate(180deg);
+}
+
+/* Footer contact form (hidden by default) */
+/* Fulfills "user input area" requirement */
+.contact-form {
+    display: none;
+    /* Shown by jQuery */
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.contact-form input[type="email"],
+.contact-form textarea {
+    margin-bottom: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.contact-form .btn {
+    width: 100%;
+    max-width: 200px;
+}
+
+/* Social media icons */
+.social-icons {
+    margin-top: 0;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: invert(1);
+    /* Makes icons white */
+}
+
+.social-icons a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Copyright text */
+.footer-copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+}
+
+/* Footer column alignment helpers */
+.footer-column:nth-child(2) {
+    text-align: center;
+}
+
+.footer-column:nth-child(2) .footer-toggle {
+    text-align: center;
+}
+
+/* 9. Animations (Animate on Scroll) */
+/* This is an optional feature from the brief */
+.animate-init {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-init.animate-fade-in-up {
+    transform: translateY(30px);
+}
+
+.animate-init.animate-fade-in-down {
+    transform: translateY(-30px);
+}
+
+.animate-fade-in-up,
+.animate-fade-in-down {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 10. Utilities (Scroll to Top Button) */
+/* This is an optional feature from the brief */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 998;
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    line-height: 45px;
+    text-align: center;
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(20px);
+}
+
+#scrollTopBtn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: none;
+    transform: translateY(-3px);
+}
+
+/* Class added by jQuery to show the button */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =================================================================
+  11. Media Queries (Responsive Design)
+  This fulfills the responsive requirement
+=================================================================
+*/
+
+/* --- Tablet (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+
+    /* Hides desktop nav, shows hamburger */
+    .header-right {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Mobile menu dropdown style */
+    .header-right.mobile-menu-active {
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+        position: absolute;
+        top: 90px;
+        right: 30px;
+        left: auto;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        z-index: 999;
+        align-items: center;
+    }
+
+    /* Stack nav links vertically */
+    .header-right.mobile-menu-active .main-nav {
+        flex-direction: column;
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .main-nav a {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    .header-right.mobile-menu-active .btn-nav {
+        margin-top: 20px;
+        width: auto;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
+
+    /* Adjust artist grid to 2 columns */
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Stack footer columns */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact-dropdown .footer-toggle {
+        text-align: center;
+    }
+
+    /* Re-order footer columns */
+    .footer-column:nth-child(1) {
+        order: 1;
+    }
+
+    .footer-column:nth-child(2) {
+        order: 3;
+    }
+
+    .footer-column:nth-child(3) {
+        order: 2;
+    }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Reduce heading sizes */
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    #hero-artists .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Stack artist grid to 1 column */
+    .artist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Adjust search form layout */
+    .artist-search-form {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .artist-search-form input {
+        max-width: 100%;
+    }
+
+    /* Adjust mobile menu position */
+    .header-right.mobile-menu-active {
+        top: 89px;
+        right: 15px;
+        width: 260px;
+    }
+
+    /* Adjust logo size */
+    .header-logo {
+        height: 50px;
+        width: 60px;
+    }
+}
+
+/* --- Small Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+    /* No specific styles needed for this page at this breakpoint */
+}

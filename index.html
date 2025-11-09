@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Elektrik Eel Festival</title>
+
+    <link rel="icon" type="image/png" href="hero_image/weblogo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Libertinus+Keyboard&family=Sixtyfour&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="hero_image/weblogo.png" alt="Elektrik Eel Logo" class="header-logo">
+                    Elektrik Eel
+                </a>
+            </div>
+
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="index.html" class="active">Home</a> <a href="artists.html">Artists</a>
+                    <a href="#shows">Shows</a>
+                    <a href="#genres">Subgenres</a>
+                    <a href="#gallery">Gallery</a>
+                </nav>
+                <a href="#signup" class="btn btn-nav">Sign Up</a>
+            </div>
+
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero" style="background-image: url('hero_image/hero_home.jpg');">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 class="animate-init animate-fade-in-down">Elektrik Eel Festival</h1>
+                    <p class="tagline animate-init animate-fade-in-up" style="animation-delay: 0.3s;">
+                        3 nights of premiere artistry and hypnotic craftsmanship
+                    </p>
+                    <p class="ticket-info animate-init animate-fade-in-up" style="animation-delay: 0.5s;">
+                        $129 early bird / $159 at the door
+                    </p>
+                    <a href="#shows" class="btn btn-outline btn-rounded animate-init animate-fade-in-up"
+                        style="animation-delay: 0.7s;">
+                        More Info &gt;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="shows" class="content-section">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Upcoming Shows</h2>
+                <div class="show-grid">
+                    <div class="show-card animate-init animate-fade-in-up">
+                        <div class="card-image" style="background-image: url('shows/brisbane.jpg');">
+                            <div class="date-tag">DEC <span>19</span></div>
+                            <div class="card-content">
+                                <h3>Brisbane</h3>
+                                <p class="location">The Family, Fortitude Valley</p>
+                                <p class="description">Event starts 10pm.</p>
+                                <div class="card-links"><a href="#signup">TICKETS &gt;</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="show-card animate-init animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="card-image" style="background-image: url('shows/sydney.jpg');">
+                            <div class="date-tag">DEC <span>20</span></div>
+                            <div class="card-content">
+                                <h3>Sydney</h3>
+                                <p class="location">S.A.S.H, CBD</p>
+                                <p class="description">Event starts 10pm.</p>
+                                <div class="card-links"><a href="#signup">TICKETS &gt;</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="show-card animate-init animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="card-image" style="background-image: url('shows/melbourne.jpg');">
+                            <div class="date-tag">DEC <span>21</span></div>
+                            <div class="card-content">
+                                <h3>Melbourne</h3>
+                                <p class="location">New Guernica, CBD</p>
+                                <p class="description">Event starts 10pm.</p>
+                                <div class="card-links"><a href="#signup">TICKETS &gt;</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="signup" class="content-section dark-bg">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Sign up for Early Bird Access</h2>
+                <p class="signup-description animate-init animate-fade-in-up" style="animation-delay: 0.2s;">
+                    We run a high-end and exclusive event management company that is focused on creating
+                    hyped shows that specialise in underground house events. We only work with the most
+                    premium DJs and artists.
+                </p>
+                <form action="#" class="signup-form animate-init animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn-primary btn-rounded">Sign Up</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="artists" class="content-section">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Artists</h2>
+                <div class="image-grid animate-init animate-fade-in-up">
+                    <div class="image-card" style="background-image: url('artists/Richie_Hawtin.jpg');">
+                        <h4>Richie Hawtin (Canada)</h4>
+                    </div>
+                    <div class="image-card" style="background-image: url('artists/Robert_Hood.jpg');">
+                        <h4>Robert Hood (USA)</h4>
+                    </div>
+                    <div class="image-card" style="background-image: url('artists/Surgeon.jpg');">
+                        <h4>Surgeon (UK)</h4>
+                    </div>
+                    <div class="image-card" style="background-image: url('artists/Oscar_Mulero.jpg');">
+                        <h4>Oscar Mulero (Spain)</h4>
+                    </div>
+                    <div class="image-card" style="background-image: url('artists/Robah_Whrume.jpg');">
+                        <h4>Robah Whrume (Germany)</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="genres" class="content-section dark-bg">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Subgenres</h2>
+                <div class="genre-grid">
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="background-image: url('genres/acid_house.jpg');">
+                        <h4>Acid House</h4>
+                    </div>
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="animation-delay: 0.1s; background-image: url('genres/chicago_house.jpg');">
+                        <h4>Chicago House</h4>
+                    </div>
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="animation-delay: 0.2s; background-image: url('genres/deep_house.jpg');">
+                        <h4>Deep House</h4>
+                    </div>
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="animation-delay: 0.3s; background-image: url('genres/tribal_house.jpg');">
+                        <h4>Tribal House</h4>
+                    </div>
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="animation-delay: 0.4s; background-image: url('genres/dark_electro.jpg');">
+                        <h4>Dark Electro</h4>
+                    </div>
+                    <div class="genre-card animate-init animate-fade-in-up"
+                        style="animation-delay: 0.5s; background-image: url('genres/industrial.jpg');">
+                        <h4>Industrial</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Event Gallery</h2>
+                <div class="image-grid animate-init animate-fade-in-up">
+                    <div class="image-card" style="background-image: url('nightlife/nightlife1.jpg');"></div>
+                    <div class="image-card" style="background-image: url('nightlife/nightlife2.jpg');"></div>
+                    <div class="image-card" style="background-image: url('nightlife/nightlife3.jpg');"></div>
+                    <div class="image-card" style="background-image: url('nightlife/nightlife4.jpg');"></div>
+                    <div class="image-card" style="background-image: url('nightlife/nightlife5.jpg');"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="content-section dark-bg">
+            <div class="section-container">
+                <h2 class="animate-init animate-fade-in-up">Don't Miss The Event</h2>
+                <a href="#signup" class="btn btn-outline btn-rounded btn-large animate-init animate-fade-in-up"
+                    style="animation-delay: 0.2s;">Get Your Tickets</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3 class="footer-title">Opening Hours</h3>
+                <ul class="opening-hours">
+                    <li>Mon - Fri: 10am - 8pm</li>
+                    <li>Sat - Sun: 12pm - 6pm</li>
+                    <li>Festival Days: 24/7</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-contact-dropdown">
+                    <button id="contactToggleBtn" class="footer-title footer-toggle">
+                        Have a Question? Get in Touch <span>&#9662;</span>
+                    </button>
+                    <form id="contactForm" action="#" class="contact-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="3" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><img src="icons/facebook.png" alt="Facebook"></a>
+                    <a href="#" aria-label="Twitter (X)"><img src="icons/twitter.png" alt="X"></a>
+                    <a href="#" aria-label="Instagram"><img src="icons/instagram.png" alt="Instagram"></a>
+                    <a href="#" aria-label="Apple Music"><img src="icons/apple.png" alt="Apple"></a>
+                    <a href="#" aria-label="Spotify"><img src="icons/spotify.png" alt="Spotify"></a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-copyright">&copy; 2025 Elektrik Eel Festival. All Rights Reserved.</p>
+    </footer>
+
+    <a id="scrollTopBtn" class="btn btn-primary">&uarr;</a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
